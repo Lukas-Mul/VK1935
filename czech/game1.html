@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Volební kalkulačka</title>
+    <link rel="stylesheet" href="2_intro_style.css" />
+  </head>
+  <body>
+   
+      <div id="explanation1-flex">
+        <p class="vysvetlivka1">
+          Hospodářská krize ve 30. letech postihla zemědělství i průmysl <br>a vedla k finanční krizi. Jedním z jejích důsledků byla také radikalizace části politického tábora. Stále častěji zaznívaly požadavky na autoritativnější způsob řízení státu, který <br>by nastolil větší sociální spravedlnost nebo například posílil nacionalistické směřování země.
+Tehdejší vláda na krizi reagovala půjčkami, organizovala podpůrné akce pro dělnictvo a rozdávala poukazy na jídlo.
+
+
+        </p>
+      </div>
+      <div id="explanation2-flex">
+        <p class="vysvetlivka1">
+          Karel Kramář byl český politik, rusofil a člen mladočeské strany, do které vstoupil roku 1890 spolu s Tomášem <br>G. Masarykem a Josefem Kaizlem.
+Ve straně zastával realistický, umírněný proud <br>a podporoval aktivní parlamentní politiku. V roce 1897 byl zvolen jejím předsedou.
+<br>Agitoval ve prospěch reformy, usiloval o zavedení rovného <br>a všeobecného volebního práva. Po jeho odsouhlasení dohlížel na rychlou proměnu a fungování strany, aby v následujících volbách obstála.
+
+        </p>
+      </div>
+    <div id="hideAll" class="container-intro">
+      <div id="game" class="justify-center flex-column hidden3">
+        <div class="question-container">
+        <div id="question" class="slide"></div>
+        <div id="progressBar">
+          <div id="progressBarFull"></div>
+          <div class="hiddenImages">
+            <img src="../img/Agrarnici.jpg" alt="">
+            <img src="../img/CSL.jpg" alt="">
+            <img src="../img/CSNS.jpg" alt="">
+            <img src="../img/CSSD.jpg" alt="">
+            <img src="../img/KSC.jpg" alt="">
+            <img src="../img/NOF.jpg" alt="">
+            <img src="../img/NS.jpg" alt="">
+            <img src="../img/SDP.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <!-- pri posledni otazce to prida class last-question-container -->
+      <div id="last-answer" class="answer-container">
+        <div class="choice-container">
+          <p class="choice-text choice-text-ano" data-number="1">Ano</p>
+        </div>
+        <div class="choice-container choice-container-red">
+          <p class="choice-text choice-text-ne" data-number="2">Ne</p>
+        </div>
+        <div class="choice-container hidden">
+          <p class="choice-text" data-number="3">Choice 3</p>
+        </div>
+        <div class="choice-container hidden hiddenLast">
+          <p class="choice-text" data-number="4">Choice 4</p>
+        </div>
+        <div class="choice-container hidden hiddenLast">
+          <p class="choice-text" data-number="5">Choice 5</p>
+        </div>
+      </div>
+      </div>
+
+
+      <div id="endGameId" class="justify-center flex-column outcome hidden2 ">
+        <div class="partiesId">
+          <div class="youSupport">Ve volbách byste svým hlasem podpořili:</div>
+          <div class="howItEnded">Jak dopadly volby?</div>
+        </div>
+        <div class="parties-container backgroundImage">
+          <div class="parties-text current" data-number="1">Party 1</div>
+          <div class="parties-text" data-number="2">Party 2</div>
+          <div class="parties-text" data-number="3">Party 3</div>
+          <div class="parties-text" data-number="4">Party 4</div>
+          <div class="parties-text" data-number="5">Party 5</div>
+          <div class="parties-text" data-number="6">Party 6</div>
+          <div class="parties-text" data-number="7">Party 7</div>
+          <div class="parties-text" data-number="8">Party 8</div>
+        </div>
+        <div class="history-text-div">
+          <div class="history-text-text">
+          <p>Voleb se zúčastnilo 92,8 % voličů.</p> 
+          <br>
+          <p>Navzdory předvolebním výzkumům se absolutním vítězem stala SDP Konrada Heinleina. Strana získala 1,25 milionu hlasů, z celkového počtu tedy 15,2 %.</p>
+          <br>
+          <p>Na druhém místě skončili Agrárníci, kteří získali vlivem rozdílné váhy voličských hlasů o jeden mandát víc, ačkoli je volilo podstatně méně lidí. Většina voličů pocházela z východní části Československa.</p>
+          <br>
+          <p>Třetí byla ČSSD, pro kterou byl výsledek zklamáním. Nespokojená s výsledkem byla i Československá obec fašistická s pouhými šesti mandáty.</p>
+          <br>
+          <p>Dosavadní koalice podala v důsledku voleb demisi, protože už neměla zajištěnou většinu. Vzniklo nové uskupení sedmi stran a dvou nestraníků, tzv. široká koalice, která se obešla bez vítězné SDP. V čele nově zformované vlády usedl jako premiér agrárník Jan Malypetr.</p>             
+          <br>
+          <p>Klid na politické scéně se však nekonal. Do roku 1938 se u nás vystřídalo celkem pět vlád, poslední z nich byla tzv. vláda úřednická. Ve stejném roce bylo pohraničí Československa na základě mnichovské dohody postoupeno Německu.</p>             
+          <br>
+          <p>Československá republika na několik let zanikla. </p>             
+          </div>
+        </div>
+        <div class="party-characteristics">
+          <div class="changingTextParties">
+            Tady bude charakteristika jednotlivych stran
+          </div>
+          </div>
+          <div class="lastResetButtonDiv"></div>
+        </div>
+      </div>
+    </div>
+    <div id="overlay" class="hidden11"></div>    
+    <div id="overlay2" class="hideOverlay2"></div>    
+
+    <div class="timeoutSign hideTimeoutSign">
+      <div class="timeoutSign-content">
+        <div class="timeoutSign-content-text">Budete pokračovat?</div>
+        <div class="timer">10</div>
+      </div>
+      <div class="continue"></div>
+      <div class="restartDiv"></div>
+    </div>
+
+    <script src="./game1.js"></script>
+    <!-- <script type="text/javascript">
+      resetButton.classList.add("hidden2");
+      </script> -->
+  </body>
+</html>

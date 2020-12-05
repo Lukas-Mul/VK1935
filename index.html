@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./czech/2_intro_style.css" />
+    <title>Volební kalkulačka</title>
+  </head>
+  <body>
+    <div class="container-intro">
+      <div class="container-intro-href czechVersion">
+            <div class="text-container">
+              <div class="title">VOLEBNÍ KALKULAČKA &nbsp;1935</div>
+              <div class="start">Spustit</div>
+              <div class="lang-icon">CZ</div>
+            </div>
+      </div>
+
+      <div class="container-intro-href englishVersion">
+            <div class="text-container">
+            <div class="title">VOTING CALCULATOR  &nbsp;1935</div>
+            <div class="start">Start</div>
+            <div class="lang-icon">EN</div>
+            </div>
+      </div>
+    </div>
+
+    
+    <script type="text/javascript">
+      const czechButton = document.querySelector(".czechVersion");
+      czechButton.addEventListener("click", function() {
+        return window.location.assign("./czech/1_video.html");
+      });
+
+      const englishButton = document.querySelector(".englishVersion")
+      englishButton.addEventListener("click", function() {
+        return window.location.assign("./english/1_video.html");
+      });
+      
+      
+    </script>
+  </body>    
+</html>
+
+

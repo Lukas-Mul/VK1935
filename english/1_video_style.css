@@ -1,0 +1,50 @@
+@font-face {
+  src: url(../fonts/HKGrotesk-SemiBold.otf);
+  font-family: "HKGrotesk-SemiBold";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.content {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+#btnReplay {
+  position: absolute;
+  bottom: 51.79%;
+  left: 1.2%;
+  height: 180%;
+  width: 12%;
+  /* padding: 10px; */
+  /* padding-right: 15px; */
+  margin-left: 0.5%;
+  cursor: pointer;
+  outline: none;
+}
+
+#btnSkip {
+  position: absolute;
+  bottom: 51.79%;
+  left: 15%;
+  height: 180%;
+  width: 12%;
+  /* padding: 10px 15px 10px 15px; */
+  cursor: pointer;
+  outline: none;
+}

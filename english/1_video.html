@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./1_video_style.css" />
+    <link rel="stylesheet" href="./2_intro_style.css">
+    <title>VIDEO</title>
+  </head>
+  <body>
+
+    <video autoplay="autoplay" class="video" id="video" src="../video/video.mp4"></video>
+     
+    <div class="content">
+      <input id="btnReplay" onclick="replay()" type="image" src="../img/reply_01.png">
+      <input id="btnSkip" onclick="skip()" type="image" src="../img/skip_01.png">
+    </div>
+
+<script type="text/javascript">
+    // Variables
+      const video = document.getElementById("video");
+      const timeLine = document.querySelector(".timeLine")    
+      
+      // Function replay
+      function replay() {
+        video.currentTime = 0;
+        video.play();
+        timeleft = 60;
+      };
+      
+      // Function skip
+      function skip() {
+        video.currentTime = 1000;
+        video.play();
+      };
+      
+      // After video ends, go automatically to the next page
+      video.addEventListener("ended", function() {
+        location.href = "./game.html";    
+      });
+
+</script>
+  </body>
+</html>

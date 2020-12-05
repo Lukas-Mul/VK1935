@@ -1,0 +1,805 @@
+@font-face {
+  src: url(../fonts/HKGrotesk-Regular.otf);
+  font-family: "HKGrotesk-Regular";
+}
+
+@font-face {
+  src: url(../fonts/HKGrotesk-SemiBold.otf);
+  font-family: "HKGrotesk-SemiBold";
+}
+@font-face {
+  src: url(../fonts/BodoniRegular.ttf);
+  font-family: "bodoniRegular";
+}
+@font-face {
+  src: url(../fonts/bodoni\ italic\ bt.ttf);
+  font-family: "bodoniItalicBt";
+}
+@font-face {
+  src: url(../fonts/Bodoni\ Roman\ font.ttf);
+  font-family: "bodoniRoman";
+}
+@font-face {
+  src: url(../fonts/LibreBodoni-Regular.ttf);
+  font-family: "BodoniLibre";
+}
+
+/* intro */
+:root {
+  background-color: #ecf5ff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "HKGrotesk-SemiBold";
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+body {
+  background-color: #ecf5ff;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+  font-size: 2.5rem;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.container-intro {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 100vh;
+  border: none;
+}
+
+.container-intro-href {
+  position: relative;
+  height: 50vh;
+  width: 100%;
+  outline: none;
+  background-color: #b6111d;
+}
+
+.container-intro-href:active {
+  box-shadow: inset 0px 0px 20px 2px black;
+  border: black 1px solid;
+  background-color: #a30f19;
+}
+
+.container-intro-href:last-child {
+  border-bottom: none;
+  background-color: #2b447e;
+}
+
+.container-intro-href:last-child:active {
+  background-color: #273e72;
+}
+
+/* .container-intro:active {
+  transform: translate(-100%, -100%) scale(0);
+  transform: ease 3s;
+} */
+
+.text-container {
+  padding-top: 5%;
+  padding-left: 5%;
+  width: 100%;
+  height: 100%;
+}
+
+.text-container .title {
+  font-size: 48pt;
+  font-family: "BodoniLibre";
+}
+
+.text-container .start {
+  font-size: 45pt;
+  font-family: "bodoniItalicBt";
+}
+
+.text-container:active {
+  transform: scale(0.98);
+  transition: transform 0s;
+}
+
+.lang-icon {
+  position: absolute;
+  right: 4%;
+  top: 19%;
+  font-family: "HKGrotesk-SemiBold";
+  font-size: 36pt;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-container {
+  /* position: relative; */
+  padding: 3% 3% 3% 3%;
+  height: 50%;
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: black;
+  font-size: 36pt;
+}
+
+.question-container-muz {
+  /* position: relative; */
+  padding: 3% 3% 3% 3%;
+  height: 50%;
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: black;
+  font-size: 36pt;
+}
+
+#question {
+  /* padding-top: 0.6rem; */
+  /* margin-top: 5rem; */
+  /* font-size: 36pt; */
+  padding-top: 4rem;
+  margin-top: 1rem;
+  font-size: 36pt;
+  font-family: "BodoniLibre";
+}
+
+.slide {
+  animation: goLeft 0.8s;
+  animation-timing-function: cubic-bezier(0, 0.4, 0, 1);
+  /* transition: animation 3s ease; */
+}
+
+@keyframes goLeft {
+  0% {
+    transform: translateX(1500px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.answer-container {
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  outline: none;
+  background-color: #b6111d;
+}
+
+.answer-container-blue {
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  outline: none;
+  background-color: #2b447e;
+}
+
+.justify-center {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.choice-container {
+  width: 100%;
+  height: 100%;
+  background-color: #2b447e;
+}
+
+.buttonDown {
+  background-color: yellow;
+}
+
+.choice-container-red {
+  width: 100%;
+  height: 100%;
+  background-color: #b6111d;
+}
+
+.choice-container-blue {
+  width: 100%;
+  height: 100%;
+  background-color: #2b447e;
+}
+
+.choice-text {
+  padding: 7rem;
+  width: 100%;
+  height: 100%;
+  font-size: 36pt;
+  text-transform: uppercase;
+  cursor: grab;
+}
+
+.choice-text:active {
+  box-shadow: inset 0px 0px 5px 4px black;
+  border-top: 1px solid rgb(36, 36, 36);
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  font-size: 34pt;
+}
+
+.choice-text-zena-ano:active {
+  background-color: #273e72;
+}
+
+.choice-text-zena-ne:active {
+  background-color: #a30f19;
+}
+
+.choice-text-next:active {
+  background-color: #273e72;
+}
+
+.choice-text-restart:active {
+  background-color: #a30f19;
+}
+
+.choice-text-ano:active {
+  background-color: #273e72;
+}
+
+.choice-text-ne:active {
+  background-color: #a30f19;
+}
+
+/* LAST PAGE CSS */
+.last-question-container1 {
+  height: 6%;
+  border: none;
+  padding: 0% 0% 0% 4%;
+  background-color: black;
+}
+
+.last-question-container {
+  position: absolute;
+  top: 11%;
+  margin-top: 2%;
+  flex-direction: column;
+  height: 85%;
+  background-color: black;
+  margin-bottom: 0%;
+}
+
+.last-question-answer {
+  background-color: #2b447e;
+  width: 50%;
+  height: fit-content;
+  margin-bottom: 2.5%;
+}
+
+.last-question-answer:last-child {
+  margin-bottom: 0%;
+}
+
+.last-question-text {
+  padding: 1.5%;
+  color: white;
+  font-size: 24pt;
+  font-family: "HKGrotesk-SemiBold";
+  text-transform: initial;
+}
+
+.last-question-text:active {
+  box-shadow: inset 5px 5px 15px black;
+  font-size: 24pt;
+  background-color: #273e72;
+}
+
+#endGameId {
+  background-color: black;
+  font-size: 16pt;
+  opacity: 0.9;
+}
+
+.partiesId {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  text-align: center;
+  width: 100%;
+  height: 6.5%;
+  background-color: black;
+  text-align: left;
+  padding-top: 0.2%;
+  /* padding-left: 1%; */
+}
+
+.hiddenImages {
+  /* transform: scale(0); */
+  /* transform: scale(0); */
+  display: none;
+}
+
+.youSupport {
+  padding-top: 0.6%;
+  font-size: 28pt;
+  font-family: "BodoniLibre";
+  padding-left: 52px;
+}
+
+.howItEnded {
+  position: absolute;
+  left: 50%;
+  top: 3%;
+  padding-top: 0.6%;
+  padding-left: 52px;
+  font-size: 28pt;
+  font-family: "BodoniLibre";
+}
+
+.parties-container {
+  position: absolute;
+  top: 6.5%;
+  left: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 50%;
+  height: 43.5%;
+  background-color: #b6111d;
+  padding-top: 0.5%;
+  border: none;
+}
+
+.backgroundImage {
+  background-size: cover;
+}
+
+.parties-text {
+  padding: 1%;
+  padding-top: 1%;
+  height: 16%;
+  width: 30%;
+  background-color: white;
+  color: #b6111d;
+  margin: 0.5%;
+  margin-left: 52px;
+  cursor: grab;
+  font-size: 16pt;
+  line-height: 95%;
+}
+
+.current {
+  height: 22%;
+  width: 42.6%;
+  font-size: 24pt;
+  padding-top: 1%;
+  line-height: 95%;
+  transition: all 0.25s ease-in;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.7);
+}
+
+.history-text-div {
+  position: absolute;
+  top: 6.5%;
+  left: 50%;
+  height: 93.5%;
+  width: 50%;
+  background-color: #2b447e;
+  text-align: left;
+  padding-top: 14.4px;
+  padding-left: 52px;
+  padding-bottom: 10%;
+}
+
+.history-text-text {
+  width: 90%;
+  text-align: left;
+  line-height: 105%;
+  font-family: "HKGrotesk-SemiBold";
+}
+
+.history-text-text p {
+  font-family: "HKGrotesk-SemiBold";
+}
+
+.changingTextParties {
+  width: 90%;
+  text-align: left;
+  line-height: 102%;
+}
+
+.party-characteristics {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  height: 50%;
+  width: 50%;
+  background-color: #b6111d;
+  text-align: left;
+  padding-top: 1%;
+  padding-left: 52px;
+  border: none;
+}
+
+.lastResetButtonDiv {
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  bottom: 0%;
+  left: 100%;
+  background-color: #f8dc20;
+}
+
+.lastResetButton {
+  position: absolute;
+  background-color: inherit;
+  outline: none;
+  color: black;
+  border: none;
+  cursor: grab;
+  font-size: 21pt;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  padding-right: 5%;
+}
+
+.lastResetButton:active {
+  font-size: 23pt;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden2 {
+  display: none;
+}
+
+.hidden4 {
+  display: none;
+}
+
+.hidden5 {
+  display: none;
+}
+
+.timeoutSign {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* techto -50% je velikost toho divu modal. tzn, ze to posune 50% velikosti toho divu doleva a nahoru */
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 11;
+  background-color: #f8dc20;
+  width: 60%;
+  height: 76%;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.timeoutSign-content {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  top: 0px;
+}
+
+.timeoutSign-content-text {
+  position: absolute;
+  color: black;
+  font-size: 300%;
+  top: 12%;
+  left: 7%;
+  font-size: 36pt;
+  font-family: "BodoniLibre";
+}
+
+.timer {
+  color: black;
+  font-size: 36pt;
+  position: absolute;
+  top: 12%;
+  right: 7%;
+  font-family: "HKGrotesk-SemiBold";
+}
+
+.continue {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 50%;
+  height: 14%;
+  background-color: white;
+  color: black;
+}
+
+.restartDiv {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 50%;
+  height: 14%;
+  background-color: black;
+}
+
+.restartDiv * {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: inherit;
+  outline: none;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: grab;
+  font-size: 30pt;
+  font-weight: 500;
+  text-align: left;
+  padding-left: 10%;
+  font-family: "HKGrotesk-SemiBold";
+}
+
+.restartDiv *:active {
+  font-size: 29pt;
+  box-shadow: inset 5px 5px 10px rgba(83, 83, 82, 0);
+  background-color: rgba(27, 34, 41, 0.25);
+  border: 1px solid rgb(53, 52, 52);
+}
+
+.continueButton {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  outline: none;
+  color: black;
+  border: none;
+  padding: 1rem;
+  cursor: grab;
+  font-size: 30pt;
+  font-weight: 700;
+  text-align: left;
+  padding-left: 10%;
+}
+
+.continueButton:active {
+  box-shadow: inset 5px 5px 10px black;
+  font-size: 28pt;
+}
+
+.hideTimeoutSign {
+  display: none;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* pointer-events: none; */
+}
+
+#overlay2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* pointer-events: none; */
+}
+
+.hidden7 {
+  display: none;
+}
+
+.hidden11 {
+  display: none;
+}
+
+.hideOverlay2 {
+  display: none;
+}
+
+.hideButton1 {
+  display: none;
+}
+
+.hideButton3 {
+  display: none;
+}
+
+.parties-text * {
+  width: 100%;
+  height: 100%;
+  padding: 2.5%;
+}
+
+.button1,
+.button3 {
+  background-color: white;
+  outline: none;
+  color: black;
+  border: none;
+  padding: 2rem;
+  margin-top: 1%;
+  cursor: grab;
+  font-size: 21pt;
+  font-family: "HKGrotesk-SemiBold";
+  animation: appear 0.8s ease-in;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.button1:active,
+.button3:active {
+  box-shadow: inset 5px 5px 10px black;
+  font-size: 27px;
+  border: 1px solid rgb(36, 36, 36);
+}
+
+.button2,
+.button4 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  background-color: white;
+  outline: none;
+  border: none;
+  color: black;
+  text-align: left;
+  padding: 2rem;
+  padding-left: 4rem;
+  cursor: grab;
+  font-size: 30pt;
+  font-family: "HKGrotesk-SemiBold";
+  font-weight: 700;
+}
+
+.button2:active,
+.button4:active {
+  box-shadow: inset 5px 5px 10px black;
+  font-size: 28pt;
+}
+
+#explanation1-flex {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* techto -50% je velikost toho divu modal. tzn, ze to posune 50% velikosti toho divu doleva a nahoru */
+  transform: translate(-50%, -50%) scale(0);
+  /* transition: 50ms ease-out; */
+  z-index: 1;
+  background-color: #f8dc20;
+  width: 50%;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  padding: 3rem;
+  border: 1px solid transparent;
+}
+
+#explanation1-flex.translate {
+  transform: translate(-50%, -50%) scale(1);
+  transition: 350ms ease-in;
+}
+
+#hideScale {
+  display: none;
+}
+
+#explanation2-flex {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* techto -50% je velikost toho divu modal. tzn, ze to posune 50% velikosti toho divu doleva a nahoru */
+  transform: translate(-50%, -50%) scale(0);
+  /* transition: all 0.5s ease-in-out; */
+  border: 1px solid black;
+  z-index: 10;
+  background-color: #f8dc20;
+  width: 50%;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  padding: 3rem;
+}
+
+#explanation2-flex.translate {
+  transform: translate(-50%, -50%) scale(1);
+  transition: 350ms ease-in;
+}
+
+.vysvetlivka1 {
+  width: 50%;
+  font-size: 21pt;
+  line-height: 100%;
+  color: black;
+  padding: 1.5%;
+  padding-bottom: 13%;
+}
+
+#progressBar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  /* height: 3%; */
+  /* height: 3rem; */
+  display: flex;
+  background-color: black;
+}
+
+#progressBarFull {
+  height: 1rem;
+  background-color: #f8dc20;
+  width: 9, 09%;
+}
+
+#fakeProgressBar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 8.3%;
+  height: 1rem;
+  display: flex;
+  background-color: #f8dc20;
+}
+
+.resetButton {
+  position: absolute;
+  right: 3rem;
+  top: 2rem;
+  background-color: inherit;
+  outline: none;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: grab;
+  font-size: 21pt;
+  font-family: "HKGrotesk-SemiBold";
+  font-weight: 700;
+}
+
+.resetButton:active {
+  font-size: 23pt;
+}

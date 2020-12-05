@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="2_intro_style.css" />
+    <title>Document</title>
+</head>
+<body>
+  <div class="container-intro">
+    <div class="question-container">
+      <div id="question">Unfortunately you will have to wait till 1919 when women were allowed to vote in our country.
+      </div>
+    </div>
+      <div class="answer-container-blue">
+      <div class="choice-container-red">
+          <p class="choice-text choice-text-restart">BACK</p>
+    </div>
+    </div>
+
+    <div id="overlay" class="hidden11"></div>    
+    <div id="overlay2" class="hideOverlay2"></div>    
+
+    <div class="timeoutSign hideTimeoutSign">
+      <div class="timeoutSign-content">
+        <div class="timeoutSign-content-text">Do you want to continue?</div>
+        <div class="timer">10</div>
+      </div>
+      <div class="continue"></div>
+      <div class="restartDiv"></div>
+    </div>
+
+    <script src="./gameGender.js"></script>    
+    <script type="text/javascript">
+      resetButton.classList.add("hidden");
+
+      const choiceRestart = document.querySelector(".choice-text-restart");
+      choiceRestart.addEventListener("click", function() {
+        return window.location.assign("./game.html");
+      });
+
+      </script>
+</body>
+</html>
+
