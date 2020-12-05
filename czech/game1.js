@@ -132,7 +132,7 @@ let questions = [
 },
 {
   question:
-    "Vládnoucí strana může zasahovat do ekonomiky a v rámci centrálního řízení státu závazně stanovovat výrobcům, co, pro koho a za jakou cenu mají vyrábět. Je to správné?.",
+    "Vládnoucí strana může zasahovat do ekonomiky a v rámci centrálního řízení státu závazně stanovovat výrobcům, co, pro koho a za jakou cenu mají vyrábět. Je to správné?",
   choice1: "Ano",
   choice2: "Ne",
   answer: 6,
