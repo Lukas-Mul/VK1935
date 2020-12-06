@@ -5,41 +5,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Election Calculator</title>
+    <title>Vote Calculator</title>
     <link rel="stylesheet" href="2_intro_style.css" />
   </head>
   <body>
    
       <div id="explanation1-flex">
         <p class="vysvetlivka1">
-          Women fought for their political and civil rights since the second half of the 19th century.
-Among those who strongly advocated for the right to vote were, for example, Alice Masaryková and Františka Plamínková.
-In 1873, the right to vote was granted to some women. However, it was very specific: the women had to own a large estate, and the election itself took place through a representative. Therefore, in reality, there weren’t many women who could change anything. 
-
-
+          The economic crisis of the 1930s affected agriculture and industry and led to a financial crisis. <br>One of its consequences was the radicalization of part of the political scene. There were increasing demands for a more authoritative way of governing the state, which would establish greater social justice or, <br>for example, strengthen the country’s nationalist direction.  
+          The then government responded to the crisis with loans, organized support events for workers, and distributed food vouchers.
         </p>
       </div>
       <div id="explanation2-flex">
         <p class="vysvetlivka1">
-          Karel Kramář was a Czech politician, Russophile and a member of the Young Czech party, which he joined in 1890 together with Tomáš G. Masaryk and Josef Kaizl.
-He advocated for a realistic, moderate direction of the party, and supported active parliamentary politics. In 1897 he was elected its chairman.
-He lobbied for a reform and pursued the introduction of equal and universal suffrage. After it was approved, he oversaw a rapid transformation of the party and its smooth operation in order to succeed in the next elections.
-
-
         </p>
       </div>
     <div id="hideAll" class="container-intro">
       <div id="game" class="justify-center flex-column hidden3">
         <div class="question-container">
-        <div id="question"></div>
+        <div id="question" class="slide"></div>
         <div id="progressBar">
           <div id="progressBarFull"></div>
           <div class="hiddenImages">
             <img src="../img/Agrarnici.jpg" alt="">
-            <img src="../img/Klerikalove.jpg" alt="">
-            <img src="../img/MladStar.jpg" alt="">
-            <img src="../img/Cstpd.jpg" alt="">
-            <img src="../img/SocDem.jpg" alt="">
+            <img src="../img/CSL.jpg" alt="">
+            <img src="../img/CSNS.jpg" alt="">
+            <img src="../img/CSSD.jpg" alt="">
+            <img src="../img/KSC.jpg" alt="">
+            <img src="../img/NOF.jpg" alt="">
+            <img src="../img/NS.jpg" alt="">
+            <img src="../img/SDP.jpg" alt="">
           </div>
         </div>
       </div>
@@ -54,10 +49,10 @@ He lobbied for a reform and pursued the introduction of equal and universal suff
         <div class="choice-container hidden">
           <p class="choice-text" data-number="3">Choice 3</p>
         </div>
-        <div class="choice-container hidden">
+        <div class="choice-container hidden hiddenLast">
           <p class="choice-text" data-number="4">Choice 4</p>
         </div>
-        <div class="choice-container hidden">
+        <div class="choice-container hidden hiddenLast">
           <p class="choice-text" data-number="5">Choice 5</p>
         </div>
       </div>
@@ -75,26 +70,33 @@ He lobbied for a reform and pursued the introduction of equal and universal suff
           <div class="parties-text" data-number="3">Party 3</div>
           <div class="parties-text" data-number="4">Party 4</div>
           <div class="parties-text" data-number="5">Party 5</div>
+          <div class="parties-text" data-number="6">Party 6</div>
+          <div class="parties-text" data-number="7">Party 7</div>
+          <div class="parties-text" data-number="8">Party 8</div>
         </div>
         <div class="history-text-div">
           <div class="history-text-text">
-          <p>84% of voters took part in the elections in the Czech lands. However, the combination of a majority system and the unequal distribution of constituencies distorted <br>the election results. The Social Democratic Party won 37.4% of the vote, but only 22.3% of the seats. The Agrarians, on the other hand, got 24.3% of the vote but won 22.5% of seats. </p> 
+          <p>92.8% of voters took part in the elections.</p> 
           <br>
-          <p>The Agrarians won the largest representation in the Vienna Parliament with 28 seats, Young Czechs gained 26 seats, Social Democrats 24 seats, the clerical parties 17 seats, and the Constitutionalist Bloc 9 seats. The progressive and independent candidates had a worse position with only four seats.    </p>
+          <p>Despite the poll results, Konrad Heinlein’s SDP became the absolute winner. <br>The party gained 1.25 million voters or 15.2% of the total.</p>
           <br>
-          <p>T. G. Masaryk also succeeded as a mostly independent candidate, but he didn’t have any allies among the parties in the Parliament. </p>
+          <p>The Agrarians were second and, due to the different weight of votes, they gained one more seat, although a significantly lower number of people voted for them. <br>Most of their voters were from the eastern part of Czechoslovakia.</p>
           <br>
-          <p>The conservative and reformist parties successfully tried to isolate the real winner <br>of the elections, the Social Democrats. The influence of the representatives <br>of the nation at the time, Young Czechs and Old Czechs, was ending. New topics started to appear in politics; the social ones were the most important among them.<br>The proponents of radical left-wing politics were trying to find their way <br>to the spotlight, and the right-wing Agrarians were also growing.  </p>
+          <p>ČSSD was third and the results were disappointing for the party. The Czechoslovak Fascist Community was also disappointed with gaining only six seats.</p>
           <br>
-          <p>The elections couldn’t prevent the collapse of the Austrian parliamentarism.  </p>             
+          <p>The previous coalition resigned due to the elections, as it no longer had a majority. <br>A new group of seven parties and two non-partisans, the so-called broad coalition, was formed. It excluded the winner of the elections, the SDP. The Agrarian Jan Malypetr became the Prime Minister of the new government.</p>             
+          <br>
+          <p>However, there was no peace on the political scene. Until 1938, five different governments were subsequently in power, the last one being a caretaker government. In the same year, the borderlands of Czechoslovakia were ceded to Germany.</p>             
+          <br>
+          <p>The Czechoslovak Republic disappeared for several years.</p>             
           </div>
         </div>
         <div class="party-characteristics">
           <div class="changingTextParties">
             Tady bude charakteristika jednotlivych stran
           </div>
-          <div class="lastResetButtonDiv">
           </div>
+          <div class="lastResetButtonDiv"></div>
         </div>
       </div>
     </div>

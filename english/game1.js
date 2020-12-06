@@ -62,7 +62,7 @@ const explanation1 = document.querySelector("#explanation1");
 const explanation2 = document.querySelector("#explanation2");
 const explanation1Flex = document.getElementById("explanation1-flex");
 const explanation2Flex = document.getElementById('explanation2-flex');
-const MAX_QUESTIONS = 12;
+const MAX_QUESTIONS = 10;
 const progressBarFull = document.getElementById('progressBarFull');
 const overlay = document.getElementById("overlay");
 const overlay2 = document.getElementById("overlay2");
@@ -74,6 +74,7 @@ const lastResetButtonDiv = document.querySelector(".lastResetButtonDiv");
 
 const chosenAnswer = document.querySelectorAll(".choice-container");
 const answerContainer = document.querySelector(".answer-container")
+const hiddenLast = document.querySelectorAll(".hiddenLast");
 
 
 // VARIABLES
@@ -85,105 +86,86 @@ let availableQuestions = [];
 let questionIndex = 0;
 
 // PARTIES
-let cssd = 0;
 let agr = 0;
-let kler = 0;
-let mladStar = 0;
-let cstpd = 0;
+let csl = 0;
+let csns = 0;
+let cssd = 0;
+let ksc = 0;
+let nof = 0;
+let ns = 0;
+let sdp = 0;
 
 // OTAZKY - TEXT
 let questions = [
 {
-  question:
-    "The introduction of universal suffrage means that all men over the age of 24 can vote and men over the age of 30 can be elected to the Parliament. The restriction <br>of the right to vote by property and origin is also lifted. <br>Do you agree with this development?",
-  choice1: "Yes",
-  choice2: "No",
+  question: "Do you agree with the current direction of the country after the economic crisis?",
+  choice1: "Ano",
+  choice2: "Ne",
   answer: 1,
 },
 {
-  question:
-    "Part of the society believes that the right to vote should also apply to women. <br>Do you agree with this opinion?",
-  choice1: "Yes",
-  choice2: "No",
+  question: "The parliamentary democracy and the President as the head of the state are the best solution.",
+  choice1: "Ano",
+  choice2: "Ne",
   answer: 2,
 },
 {
   question:
-    "It is necessary to strive for the greatest possible national independence within <br>the monarchy. The most important agenda must be the defence of national interests.",
-  choice1: "Yes",
-  choice2: "No",
+    "Would you vote for a party that wants to turn to France, Romania and Great Britain rather than Germany, Italy and the Soviet Union in foreign policy? ",
+  choice1: "Ano",
+  choice2: "Ne",
   answer: 3,
 },
 {
   question:
-    "After many years of passivity, Czech politicians are finally represented <br>in the Austrian government and have the opportunity to cooperate with Vienna <br>at the governmental level. <br>In your opinion, should we continue to strengthen political relations and direct our ministers to Vienna?",
-  choice1: "Yes",
-  choice2: "No",
+    "Would you vote for a party that uses foreign funding for its political programme?",
+  choice1: "Ano",
+  choice2: "Ne",
   answer: 4,
 },
 {
   question:
-    "Czech politics should follow the path of a single national ballot. The newly created constituencies must favour the Czech populations.",
-  choice1: "Yes",
-  choice2: "No",
+    "The winning party must be international and have support abroad.",
+  choice1: "Ano",
+  choice2: "Ne",
   answer: 5,
 },
 {
   question:
-    "Economic interests are key to Czech politics. It is necessary to strive for the greatest possible autonomy in the field of industrial and rural development.",
-  choice1: "Yes",
-  choice2: "No",
+    "The ruling party can intervene in the economy and, as part of the central management of the state, make binding rules on what, for whom, and at what price the producers should manufacture. Is this right?",
+  choice1: "Ano",
+  choice2: "Ne",
   answer: 6,
 },
 {
   question:
-    "Karel Kramář is the greatest personality of Czech politics, a defender of Slavism, and a capable leader! He should become the leader of the nation.",
-  choice1: "Yes",
-  choice2: "No",
+    "The winning party should be willing to work closely with other parties if this would improve the political situation in the country.",
+  choice1: "Ano",
+  choice2: "Ne",
   answer: 7,
 },
 {
-  question:
-    "T. G. Masaryk, a candidate for the Parliament and a professor at the University <br>of Prague, wrote: “An interest in Slovakia must be an important part of the Czech parties’ programme.” <br>Do you share this opinion?",
-  choice1: "Yes",
-  choice2: "No",
+  question: "Which campaign slogan do you like best? ",
+  choice1: "Let the rich pay.",
+  choice2: "They promise nothing – just purification.",
+  choice3: "For agriculture – for the Czechoslovakian nation.",
+  choice4: "More work, rights and bread.",
+  choice5: "Work and save up.",
   answer: 8,
 },
 {
-  question:
-    "In international politics, Austria-Hungary focuses on Germany and Italy, while <br>the Slavic nations sympathize with the East. <br>Should Czech politics support Russia?",
-  choice1: "Yes",
-  choice2: "No",
+  question: "The best way to reach out to voters is:",
+  choice1: "Pompous meetings and marches.",
+  choice2: "Intimidation of opposing candidates.",
+  choice3: "Leaflet and newspaper campaign and public meetings.",
   answer: 9,
 },
 {
-  question:
-    "Times are changing and bringing problems that the Austrian government is unable to solve. Therefore, it is necessary to change the political approach – less negotiation, more pressure!",
-  choice1: "Yes",
-  choice2: "No",
-  answer: 10,
-},
-{
-  question: "Which statement do you identify with?",
-  choice1:
-    "„We want to provide for the persons unable to work <br>by introducing an old-age and disability pension, and a pension for widows and orphans.“",
-  choice2: "„Let’s fight for the equality of nations and equality in our nation!”  ",
-  choice3: "„Send many true guardians of the soil and fighters for its security at all times to Vienna!”",
-  choice4:
-    "„We want strong carte blanche politics, politics willing to support any government that is just to us, but politics determined to fight every government which would not fulfil the obligations of the state towards the Czech nation.“",
-  choice5: "„Education must be based on tradition, values, and love for one’s country.”",
-  answer: 11,
-},
-{
-  question: "Which statement do you identify with?",
-  choice1:
-    "„We want to provide for the persons unable to work by introducing an old-age and disability pension, and a pension for widows and orphans.“",
-  choice2: "„Let’s fight for the equality of nations and equality in our nation!”  ",
-  choice3: "„Send many true guardians of the soil and fighters for its security at all times to Vienna!”",
-  choice4:
-    "„We want strong carte blanche politics, politics willing to support any government that is just to us, but politics determined to fight every government which would not fulfil the obligations of the state towards the Czech nation.“",
-  choice5: "„Education must be based on tradition, values, and love for one’s country.”",
-  answer: 11,
+  question: "Nejlepší cesta, jak oslovit voliče, je:",
+  choice1: "Velikášská setkání a pochody ",
+  choice2: "Zastrašování protikandidátů",
+  choice3: "Letáková a novinová kampaň a manifestační setkání",
+  answer: 9,
 },
 ];
 
@@ -229,30 +211,58 @@ continueButton.addEventListener("click", function() {
 // FUNKCE STARTGAME
 startGame = () => {
 questionCounter = 1;
-score = 0;
 availableQuestions = [...questions];
+console.log(questions[0]);
+// zobrazit prvni vysvetlivku na prvni otazce
+function createButton1 (){
+  let button1 = document.createElement("button")
+  button1.className = "button1";
+  button1.innerText = "MORE INFO"
+  questionContainer.appendChild(button1)
+  button1.addEventListener("click", function(){
+    // add class hidden na overlay element, takze kliknutim se tam ten overlay element zobrazi a udela vsechno ostatni tmavym
+    overlay.classList.remove("hidden11");
+    explanation1Flex.classList.add("translate");
+  })
+}
+createButton1();
+
+// zobrazi tlacitko zpet na vysvetlivce
+function createButton2 (){
+  const button2 = document.createElement("button")
+  button2.className = "button2";
+  button2.innerText = "BACK"
+  explanation1Flex.appendChild(button2)
+  button2.addEventListener("click", function(){
+    overlay.classList.add("hidden11");
+    explanation1Flex.classList.remove("translate");
+  })
+}
+createButton2();
+
+// FUNKCE GETNEWQUESTION:
 getNewQuestion();
 };
 
 //FUNKCE getNewQuestion
 getNewQuestion = () => {
+//  if (availableQuestions.length === 0) {
+// }
 
 questionCounter++
 // Update the progress bar
 progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
-  // vytvori u divu question dalsi tridu "slide", ktera zajistuje animaci
-  question.classList.add("slide");
-  // odstrani tridu slide, kdyz se klikne na odpoved
-  function slideAway(){
-    answerContainer.addEventListener("mousedown", function(){
-      question.classList.remove("slide");
-    })
-  }
-  // spusteni funkce slideAway
-  slideAway();
+question.classList.add("slide");
+// question.classList.remove("goAway");
 
-
+// prida tridu slide, diky ktere text otazek slidne doleva
+function slideAway(){
+  answerContainer.addEventListener("mousedown", function(){
+    question.classList.remove("slide");
+  })
+}
+slideAway();
 
 currentQuestion = availableQuestions[0];
 question.innerHTML = currentQuestion.question; //ta question na leve strane znaci ten div s tou otazkou. priradim k ni innerText, ktery si js najde tak, ze pujde podle currentQuestion a vezme si property question z te currentQuestion.
@@ -280,115 +290,133 @@ choice.addEventListener("click", (e) => {
     const hiddenContainer = document.querySelectorAll(".hidden");
     hiddenContainer.forEach(function (item) {
       if (
-        currentQuestion.answer == 10 &&
+        currentQuestion.answer == 7 &&
         (selectedAnswer == 1 || selectedAnswer == 2)
       ) {
         item.classList.remove("hidden");
       }
     });
   }
+  removeClassHidden();
 
+  // Odstrani posledni dve odpovedi v posledni otazce, ktere tam jsou navic
+  function removeClassHiddenLast() {
+    hiddenLast.forEach(function (item) {
+      if (
+        currentQuestion.answer == 8 &&
+        (selectedAnswer == 1 || selectedAnswer == 2 || selectedAnswer == 3 || selectedAnswer == 4 || selectedAnswer == 5)
+      ) {
+        item.classList.add("hideLastTwoAnswers");
+      }
+    });
+  }
+  removeClassHiddenLast();
+
+  // Obstaraji okryti a zakryti html divu tak, aby byla videt posledni vysledkova stranka
   function removeClassHidden2() {
     const hiddenContainer2 = document.querySelectorAll(".hidden2");
     hiddenContainer2.forEach(function (item) {
       if (
-        currentQuestion.answer == 11 &&
+        currentQuestion.answer == 9 &&
         (selectedAnswer == 1 || selectedAnswer == 2 || selectedAnswer == 3 || selectedAnswer == 4 || selectedAnswer == 5)
       ) {
         item.classList.remove("hidden2");
       }
     });
   }
+  removeClassHidden2();
 
   function addClassHidden3() {
     const hiddenContainer3 = document.querySelectorAll(".hidden3");
     hiddenContainer3.forEach(function (item) {
       if (
-        currentQuestion.answer == 11 &&
-        (selectedAnswer == 1 || selectedAnswer == 2 || selectedAnswer == 3 || selectedAnswer == 4 || selectedAnswer == 5)
+        currentQuestion.answer == 9 &&
+        (selectedAnswer == 1 || selectedAnswer == 2 || selectedAnswer == 3)
       ) {
         item.classList.add("hidden2");
       }
     });
   }
+  addClassHidden3();
 
   function addClassLastQuestion() {
     const hiddenContainer3 = document.querySelectorAll("#last-answer");
     hiddenContainer3.forEach(function (item) {
       if (
-        currentQuestion.answer == 10 &&
+        currentQuestion.answer == 7 &&
         (selectedAnswer == 1 || selectedAnswer == 2)
       ) {
         item.classList.add("last-question-container");
       }
     });
   }
+  addClassLastQuestion();
 
   function addClassLastQuestion1() {
     const hiddenContainer3 = document.querySelectorAll(".question-container");
     hiddenContainer3.forEach(function (item) {
       if (
-        currentQuestion.answer == 10 &&
+        currentQuestion.answer == 7 &&
         (selectedAnswer == 1 || selectedAnswer == 2)
       ) {
         item.classList.add("last-question-container1");
       }
     });
   }
+  addClassLastQuestion1();
 
   function addClassLastAnswer() {
     const hiddenContainer4 = document.querySelectorAll(".choice-text");
     hiddenContainer4.forEach(function (item) {
       if (
-        currentQuestion.answer == 10 &&
+        currentQuestion.answer == 7 &&
         (selectedAnswer == 1 || selectedAnswer == 2)
       ) {
         item.classList.add("last-question-text");
       }
     });
   }
+addClassLastAnswer();
 
   function addClassLastText() {
     const hiddenContainer5 = document.querySelectorAll(".choice-container");
     hiddenContainer5.forEach(function (item) {
       if (
-        currentQuestion.answer == 10 &&
+        currentQuestion.answer == 7 &&
         (selectedAnswer == 1 || selectedAnswer == 2)
       ) {
         item.classList.add("last-question-answer");
       }
     });
   }
+  addClassLastText();
 
   // VYTVORIT VYSVETLIVKU cislo 1 - Button 1
-
-  function createButton1 (){
-    let button1 = document.createElement("button")
-    button1.className = "button1";
-    button1.innerText = "MORE INFO"
-    questionContainer.appendChild(button1)
-    button1.addEventListener("click", function(){
-      // add class hidden na overlay element, takze kliknutim se tam ten overlay element zobrazi a udela vsechno ostatni tmavym
-      overlay.classList.remove("hidden11");
-      explanation1Flex.classList.add("translate");
+  // function createButton1 (){
+  //   let button1 = document.createElement("button")
+  //   button1.className = "button1";
+  //   button1.innerText = "ZJISTIT VÍC"
+  //   questionContainer.appendChild(button1)
+  //   button1.addEventListener("click", function(){
+  //     // add class hidden na overlay element, takze kliknutim se tam ten overlay element zobrazi a udela vsechno ostatni tmavym
+  //     overlay.classList.remove("hidden11");
+  //     explanation1Flex.classList.add("translate");
       
-    })
-  }
+  //   })
+  // }
 
   // VYTVORIT TLACITKO ZPET Z VYSVETLIVKY - Button 2
 
-  function createButton2 (){
-    const button2 = document.createElement("button")
-    button2.className = "button2";
-    button2.innerText = "BACK"
-    explanation1Flex.appendChild(button2)
-    button2.addEventListener("click", function(){
-      overlay.classList.add("hidden11");
-      explanation1Flex.classList.remove("translate");
-
-
-    })
-  }
+  // function createButton2 (){
+  //   const button2 = document.createElement("button")
+  //   button2.className = "button2";
+  //   button2.innerText = "ZPĚT"
+  //   explanation1Flex.appendChild(button2)
+  //   button2.addEventListener("click", function(){
+  //     overlay.classList.add("hidden11");
+  //     explanation1Flex.classList.remove("translate");
+  //   })
+  // }
 
   // SKRYT BUTTON1
   function hideButton1(){
@@ -397,195 +425,166 @@ choice.addEventListener("click", (e) => {
   }
 
 // VYTVORIT VYSVETLIVKU CISLO 2 - Button 3
-function createButton3 (){
-  let button3 = document.createElement("button")
-  button3.className = "button3";
-  button3.innerText = "MORE INFO"
-  questionContainer.appendChild(button3)
-  button3.addEventListener("click", function(){
-    overlay.classList.remove("hidden11");
-    explanation2Flex.classList.add("translate");
+// function createButton3 (){
+//   let button3 = document.createElement("button")
+//   button3.className = "button3";
+//   button3.innerText = "ZJISTIT VÍC"
+//   questionContainer.appendChild(button3)
+//   button3.addEventListener("click", function(){
+//     overlay.classList.remove("hidden11");
+//     explanation2Flex.classList.add("translate");
 
   
-  })
-}
+//   })
+// }
 
 // VYTVORIT TLACITKO ZPET Z VYSVETLIVKY - Button 2
+// function createButton4 (){
+//   const button4 = document.createElement("button")
+//   button4.className = "button4";
+//   button4.innerText = "ZPĚT"
+//   explanation2Flex.appendChild(button4)
+//   button4.addEventListener("click", function(){
+//     explanation2Flex.classList.remove("translate");
+//     overlay.classList.add("hidden11");
+//   })
+// }
 
-function createButton4 (){
-  const button4 = document.createElement("button")
-  button4.className = "button4";
-  button4.innerText = "BACK"
-  explanation2Flex.appendChild(button4)
-  button4.addEventListener("click", function(){
-    explanation2Flex.classList.remove("translate");
-    overlay.classList.add("hidden11");
-  })
-}
+// SKRYT BUTTON3
+// function hideButton3(){
+//   let oznaceniButton3 = document.querySelector(".button3");
+//     oznaceniButton3.classList.add("hideButton3");;
+// }
 
-// SKRYT BUTTON1
-function hideButton3(){
-  let oznaceniButton3 = document.querySelector(".button3");
-    oznaceniButton3.classList.add("hideButton3");;
-}
 
 // FUNKCE countPoints - Pocitani bodu
   function countPoints() {
-    // OTAZKA 0
-    if (currentQuestion.answer == 0 && selectedAnswer == 1) {
-      return window.location.assign("./zena.html");
-          }
-    if (currentQuestion.answer == 0 && selectedAnswer == 2) {
-      return window.location.assign("./muz.html");
-    }
-    // OTAZKA 1
+     // OTAZKA 1
     if (currentQuestion.answer == 1 && selectedAnswer == 1) {
-      cssd++;
       agr++;
-      cstpd++;
-      mladStar++;
-      createButton1 ()
-      createButton2 ()
+      csl++;
+      csns++;
+      cssd++;
+      hideButton1()
     }
     if (currentQuestion.answer == 1 && selectedAnswer == 2) {
-      kler++;
-      createButton1 ()
-      createButton2 ()
+      ksc++;
+      nof++;
+      ns++;
+      sdp++;
+      hideButton1()
     }
     // OTAZKA 2
     if (currentQuestion.answer == 2 && selectedAnswer == 1) {
-      cstpd++;
+      agr++;
+      csl++;
+      csns++;
       cssd++;
-     hideButton1()
 
     }
     if (currentQuestion.answer == 2 && selectedAnswer == 2) {
-      kler++;
-      agr++;
-      mladStar++;
-      hideButton1()
+      ksc++;
+      nof++;
+      ns++;
+      sdp++;
     }
     // OTAZKA 3
     if (currentQuestion.answer == 3 && selectedAnswer == 1) {
-      cstpd++;
-      mladStar++;
+      agr++;
+      csl++;
+      csns++;
+      cssd++;
     }
     if (currentQuestion.answer == 3 && selectedAnswer == 2) {
-      kler++;
-      cssd++;
-      agr++;
+      ksc++;
+      nof++;
+      ns++;
+      sdp++;
     }
     // OTAZKA 4
     if (currentQuestion.answer == 4 && selectedAnswer == 1) {
-      agr++;
-      mladStar++;
-      kler++;
+      ksc++;
+      nof++;
+      sdp++;
     }
     if (currentQuestion.answer == 4 && selectedAnswer == 2) {
+      agr++;
+      csl++;
+      csns++;
       cssd++;
-      cstpd++;
+      ns++
     }
     // OTAZKA 5
     if (currentQuestion.answer == 5 && selectedAnswer == 1) {
-      mladStar++;
+      ksc++;
+      nof++;
+      sdp++;
     }
     if (currentQuestion.answer == 5 && selectedAnswer == 2) {
-      kler++;
-      cssd++;
       agr++;
-      cstpd++;
+      csl++;
+      csns++;
+      cssd++;
+      ns++
     }
     // OTAZKA 6
     if (currentQuestion.answer == 6 && selectedAnswer == 1) {
-      agr++;
-      createButton3 ()
-      createButton4 ()
+      ksc++;
+      nof++;
+      sdp++;
+      
     }
     if (currentQuestion.answer == 6 && selectedAnswer == 2) {
-      kler++;
+      agr++;
+      csl++;
+      csns++;
       cssd++;
-      cstpd++;
-      mladStar++;
-      createButton3 ()
-      createButton4 ()
+      ns++      
     }
     // OTAZKA 7
     if (currentQuestion.answer == 7 && selectedAnswer == 1) {
-      mladStar++;
-      hideButton3()
+      agr++;
+      csl++;
+      csns++;
+      cssd++;
+ 
     }
     if (currentQuestion.answer == 7 && selectedAnswer == 2) {
-      kler++;
-      cssd++;
-      agr++;
-      cstpd++;
-      hideButton3()
+      ksc++;
+      nof++;
+      sdp++;
     }
+
     // OTAZKA 8
     if (currentQuestion.answer == 8 && selectedAnswer == 1) {
+      ksc++
     }
     if (currentQuestion.answer == 8 && selectedAnswer == 2) {
-      kler++;
-      cssd++;
-      agr++;
-      cstpd++;
-      mladStar++;
+      nof++
     }
+    if (currentQuestion.answer == 8 && selectedAnswer == 3) {
+      agr++
+    }
+    if (currentQuestion.answer == 8 && selectedAnswer == 4) {
+      sdp++
+    }
+    if (currentQuestion.answer == 8 && selectedAnswer == 4) {
+      ns++
+    }
+    
     // OTAZKA 9
     if (currentQuestion.answer == 9 && selectedAnswer == 1) {
-      mladStar++;
+      sdp++;
     }
-    if (currentQuestion.answer == 9 && selectedAnswer == 2) {
-      kler++;
-      cssd++;
+    if (currentQuestion.answer == 9 && selectedAnswer == 1) {
+      nof++;
+    }
+    if (currentQuestion.answer == 9 && selectedAnswer == 1) {
       agr++;
-      cstpd++;
-    }
-    // OTAZKA 10
-    if (currentQuestion.answer == 10 && selectedAnswer == 1) {
+      csl++;
+      csns++;
       cssd++;
-      agr++;
-      cstpd++;
-      addClassLastQuestion();
-      removeClassHidden();
-      addClassLastAnswer();
-      addClassLastText();
-      addClassLastQuestion1();
-    }
-    if (currentQuestion.answer == 10 && selectedAnswer == 2) {
-      kler++;
-      mladStar++;
-      addClassLastQuestion();
-      removeClassHidden();
-      addClassLastAnswer();
-      addClassLastText();
-      addClassLastQuestion1();
-    }
-    // OTAZKA 11
-    if (currentQuestion.answer == 11 && selectedAnswer == 1) {
-      cssd++;
-      removeClassHidden2();
-      addClassHidden3();
-    }
-    if (currentQuestion.answer == 11 && selectedAnswer == 2) {
-      cstpd++;
-      removeClassHidden2();
-      addClassHidden3();
-    }
-    if (currentQuestion.answer == 11 && selectedAnswer == 3) {
-      agr++;
-      removeClassHidden2();
-      addClassHidden3();
-    }
-    if (currentQuestion.answer == 11 && selectedAnswer == 4) {
-      mladStar++;
-      removeClassHidden2();
-      addClassHidden3();
-    }
-    if (currentQuestion.answer == 11 && selectedAnswer == 5) {
-      kler++;
-      removeClassHidden2();
-      addClassHidden3();
+      ns++;
     }
   }
   countPoints();
@@ -593,71 +592,103 @@ function hideButton3(){
   // ARRAY OBJEKT VYSLEDKY TEXT
   let strany = [
       {
-      text:"CLERICAL PARTIES",
+      text:"AGRARIANS",
       cislo: 1,
-      strana: Math.floor((kler / 11) * 100),      
+      strana: Math.floor((agr / 9) * 100),      
       },
   {
       text:
-        "YOUNG CZECHS",
-      cislo: 2,
-      strana: Math.floor((mladStar / 11) * 100),
-  },
-  {
-      text:
         "SOCIAL DEMOCRATS",
+      cislo: 2,
+      strana: Math.floor((cssd / 9) * 100),
+  },
+  {
+      text:
+        "NATIONAL SOCIALISTS",
       cislo: 3,
-      strana: Math.floor((cssd / 11) * 100),
+      strana: Math.floor((csns / 9) * 100),
   },
   {
       text:
-        "AGRARIANS",
+        "PEOPLE'S PARTY",
       cislo: 4,
-      strana: Math.floor((agr / 11) * 100),
+      strana: Math.floor((csl / 9) * 100),
   },
   {
       text:
-        "CONSTITUTIONALIST BLOC",
+        "NATIONAL UNIFICATION",
       cislo: 5,
-      strana: Math.floor((cstpd / 11) * 100),
-    }
+      strana: Math.floor((ns / 9) * 100),
+    },
+  {
+      text:
+        "HENLEIN'S PARTY",
+      cislo: 5,
+      strana: Math.floor((sdp / 9) * 100),
+    },
+  {
+      text:
+        "CZECH FASCISTS",
+      cislo: 5,
+      strana: Math.floor((nof / 9) * 100),
+    },
+  {
+      text:
+        "CZECHOSLOVAK COMMUNISTS",
+      cislo: 5,
+      strana: Math.floor((ksc / 9) * 100),
+    },
   ];
 
 
   // Preradi objekt strany od nejvetsiho po nejmensi pocet bodu
   const stranySorted = strany.sort((a, b) => parseFloat(b.strana) - parseFloat(a.strana));
+  console.log(stranySorted);
 
 
 // VEZME OBJEKT "stranySorted" A HODI HO DO DIVU
-  const allDivs = document.querySelectorAll(".parties-container div");
-  stranySorted.forEach(function(obj, index, arr) {
-      allDivs[index].innerHTML = obj.strana + "% " + obj.text;
-    });  
+stranySorted.forEach(function(obj, index, arr) {
+    allDivs[index].innerHTML = obj.strana + "% " + obj.text;
+  });  
 
 function firstPartyToSee(){
-  if(allDivs[0].innerHTML.indexOf("CLERICAL PARTIES") !== -1) {
-    changingPartiesDiv.innerHTML = "<p>Clerical Parties</p><br><p>The clerical or Catholic parties were formed at the end of the 19th century. <br>There were two main discourses among them: the Catholic-National and the Christian-Social one. </p><br><p>In 1897, the Catholic-Social parties merged into the National Catholic Party <br>of the Kingdom of Bohemia. The National Catholic Party sought peaceful cooperation between the Slavic nations living in the Habsburg Monarchy without being dominated by the German-speaking elites. However, it remained loyal to the monarchy.</p><br><p>The Christian Social Party was founded in 1894. It developed in a more civic direction.</p><br><p>Both discourses were very conservative in their actions; they rejected the women’s movements and held the view that society is based on status. They saw both socialism and liberalism as systemic evil.</p>";
-    partiesContainerDiv.style.backgroundImage = "url(../img/Klerikalove.jpg";
-  } 
-  if(allDivs[0].innerHTML.indexOf("YOUNG CZECHS") !== -1) {
-    changingPartiesDiv.innerHTML = "<p>Young Czechs (for our calculator, we connected them with Old Czechs)</p><br> <p>The National Liberal Party, in short, Young Czechs, was a political party operating <br>in the Czech part of Austria-Hungary. It was established at the end of 1874 after long disputes in the National Party. The programme of the Young Czechs was nationalist and liberal. At the turn of the 19th and 20th centuries, the party held a dominant position in the Czech political spectrum. Karel Kramář, Alois Rašín and Miroslav Tyrš were among the party’s important members.</p><br><p>Old Czechs</p>The National Party, or Old Czechs, was the first political party in the Czech lands. <br>It was founded in 1848 by a civil initiative and brought together various political and ideological groups. Initially, it included the Young Czechs, who, however, separated after long disputes in 1874. <br>The influence of the National Party on political events – despite several years of being represented in the Imperial Council – was declining ever since.";
-    partiesContainerDiv.style.backgroundImage = "url(../img/MladStar.jpg";
-
-  }
-  if(allDivs[0].innerHTML.indexOf("SOCIAL DEMOCRATS") !== -1) {
-    changingPartiesDiv.innerHTML = "<p>Social Democrats</p><br>The Social Democratic Czechoslavonic Workers’ Party was founded in 1893 by gaining independence from the Austrian Socialists. It was represented in the Imperial Council since 1897. At the same time, the social democratic representatives decided on a statement that lead to the establishment of the Democratic Czechoslavonic Workers’ Party. The party advocated for an eight-hour workday, a fair wage <br>and universal suffrage. In the 1907 elections, they ran outside the Austrian Social Democracy for the first time. At the time, voters were divided into several groups (curia) and the weight of individual votes varied. Thus, although at first, it seemed that Social Democracy would win the Czech lands, after the conversion according to curia it ended second. <br>During the First World War, the party was initially loyal to Austria-Hungary, but towards the end of the war, its left wing took part in anti-war demonstrations.";
-    partiesContainerDiv.style.backgroundImage = "url(../img/SocDem.jpg";
-
-  }
   if(allDivs[0].innerHTML.indexOf("AGRARIANS") !== -1) {
-    changingPartiesDiv.innerHTML = "<p>Agrarians</p><br>The Czech Agrarian Party, one of the most important parties of the First Republic period, was founded in 1899. Its founding fathers included Karel Prášek and Stanislav Kubr. Agrarians supported national traditions, and their goal was to weaken centralism and expand the powers of the assemblies of the Bohemian Crown. Their programme included the supervision of agricultural cartels, the recognition of Czech state law, and the protection of Austrian agriculture. They focused on the basic needs of the rural population and defended the interests of farmers – sometimes too ruthlessly. Before the outbreak of the First World War, Agrarians were the second strongest party.";
-    partiesContainerDiv.style.backgroundImage = "url(../img/Agrarnici.jpg";
+    changingPartiesDiv.innerHTML = "<p>Agrarians</p><br><p>The Republican Party of Farmers and Peasants was founded in 1899. It primarily focused on the needs of the rural population. Antonín Švehla, one of the main representatives of the Czech resistance, is the most well-known personality <br>of the party. The party had a very dense organizational network, and it reached its peak in the 1935 elections – although the Agrarians didn’t win, they gained 45 seats, which was enough for them to continue being the main force in the Government. However, the influence of this party slowly diminished since it wasn’t able to address the ongoing urbanization in its programme. In 1938 it was dissolved and was not restored after the Second World War.</p>";
+    partiesContainerDiv.style.backgroundImage = "url(../img/Agrarnici.jpg)";
+  } 
+  if(allDivs[0].innerHTML.indexOf("SOCIAL DEMOCRATS") !== -1) {
+    changingPartiesDiv.innerHTML = "<p>Social Democrats</p><br> <p>The tradition of an organized social democratic movement started in 1878, but the Czechoslovak Social Democratic Worker’s Party (ČSDSD) was only founded <br>in December 1918. It was one of the strongest political parties in the First Republic; <br>in 1921, however, several representatives left for the newly formed Communist Party (KSČ).  Between the world wars, it cooperated with German and Austrian parties thanks to its left-wing ideas about national minorities. The international political programme made it possible to establish contacts abroad.";
+    partiesContainerDiv.style.backgroundImage = "url(../img/CSSD.jpg)";
 
   }
-  if(allDivs[0].innerHTML.indexOf("CONSTITUTIONALIST BLOC") !== -1) {
-    changingPartiesDiv.innerHTML = "<p>Constitutionalist Bloc</p><br><p>In response to the lack of national parties, four schools of thought gradually appeared at the Nymburk congress of the Young Bohemians in 1894:</p><br><p>1) The Constitutionalist Right, which emphasized historical state law. It was headed by Alois Rašín, the future Minister of Finance of the First Republic. </p><br><p>2) The Radical Progressive Party, originally the Constitutionalist Left, which advocated for the idea of natural law. It was founded in 1897 by the Hajn brothers.</p><br><p>3) The Party of Progressive Socialists, founded in 1896 by progressive workers <br>and anarchists.</p><br><p>4)The Czech Constitutionalist Party, which advocated for universal suffrage <br>and the independence of Czech lands from the beginning. </p><br><p>Before the elections, there were strong anti-clerical feelings in the Czech lands; this led to the unification of national social, radically progressive, and constitutionalist representatives. The Alliance of Czech Constitutionalist Democracy was established. Karel Baxa, Václav Klofáč and Václav Hajn were among those who joined the Imperial Council as members of this Constitutionalist Bloc. A year later, the Czech Constitutionalist Party merged with the Radical Progressive Party, which led <br>to the establishment of the Czech Constitutionalist Party.</p> ";
-    partiesContainerDiv.style.backgroundImage = "url(../img/Cstpd.jpg";
+  if(allDivs[0].innerHTML.indexOf("NATIONAL SOCIALISTS") !== -1) {
+    changingPartiesDiv.innerHTML = "<p>National Socialists</p><br>The Czechoslovak National Socialist Party was founded in 1897 but only got this name in 1926. It had its own unions which helped it consolidate its political power during the interwar period. It was one of the parties of the so-called Five, which held the most political power. Among the members of this party were, for example, <br>the second President of Czechoslovakia Edvard Beneš, Milada Horáková and Václav Klofáč. On the political spectrum, this was a centrist party, which promoted National Socialism and advocated for the defence of the Republic.";
+    partiesContainerDiv.style.backgroundImage = "url(../img/CSNS.jpg)";
 
+  }
+  if(allDivs[0].innerHTML.indexOf("PEOPLE'S PARTY") !== -1) {
+    changingPartiesDiv.innerHTML = "<p>People's Party</p><br>The Czechoslovak People’s Party was established in January 1919 by merging several Catholic parties. From the beginning, it targeted people from all social backgrounds and thanks to its broad scope was successful despite weak election results. <br>It participated in all the governments of the First Republic. In addition to its own newspaper, which was issued by almost every party, they founded the Orel gymnastic organization. It was a close second to the more famous Sokol. The leading figure <br>of the party was its founder, Msgr. Jan Šrámek. ";
+    partiesContainerDiv.style.backgroundImage = "url(../img/CSL.jpg)";
+
+  }
+  if(allDivs[0].innerHTML.indexOf("NATIONAL UNIFICATION") !== -1) {
+    changingPartiesDiv.innerHTML = "<p>National Unification</p><br>The National Unification was a young political group founded in 1934 “on popular demand”. It was characterized by strong Czech nationalism, which was <br>to be a counterweight to German nationalism. The party was among the loudest critics of the traditional ruling parties and of President Edvard Beneš. It gained 5.5 % of the vote in the elections, which was enough for 17 seats. Internal disagreements <br>in the party led to its merging into the Party of National Unity in 1938. ";
+    partiesContainerDiv.style.backgroundImage = "url(../img/NS.jpg)";
+
+  }
+  if(allDivs[0].innerHTML.indexOf("HENLEIN'S PARTY") !== -1) {
+    changingPartiesDiv.innerHTML = "<p>Henlein's Party</p><br><p>The Sudeten German Party (SDP) was founded in 1933 in reaction to the effects of the Great Depression, which affected the borderland severely. The party’s founder <br>and chairman, Konrad Henlein, targeted the Czech Germans. He failed to unite German political parties, but his electorate grew significantly, leading to the party’s victory in the 1935 elections. The party didn’t win the largest number of seats <br>and was not tasked with forming a government, but its popularity continued to rise.  The SDP started escalating its demands regarding the issues of national minorities, especially the Czech Germans. In this way, it significantly contributed to the political crisis which resulted in the demise of the First Republic.</p> ";
+    partiesContainerDiv.style.backgroundImage = "url(../img/SDP.jpg)";
+
+  }
+  if(allDivs[0].innerHTML.indexOf("CZECH FASCISTS") !== -1) {
+    changingPartiesDiv.innerHTML = "<p>Czech Fascists</p><br><p>The National Fascist Community was the largest group of Czech fascists during the interwar period and started emerging during the early 1920s. The party was established by merging several smaller fascist organizations united by their hatred towards the communists.  At first, it was against Germany, but it changed its stance <br>at the end of the 1930s, hoping to gain more political power. Its biggest success came in the 1935 elections in which it won six seats. It never reached significant power due to internal disputes. The leader of the party was one of the greatest personalities <br>of the Czechoslovak legions, Rudolf Gejdl (better known as Radola Gajda). The party ceased to exist in 1939.</p> ";
+    partiesContainerDiv.style.backgroundImage = "url(../img/NOF.jpg)";
+
+  }
+  if(allDivs[0].innerHTML.indexOf("CZECHOSLOVAK COMMUNISTS") !== -1) {
+    changingPartiesDiv.innerHTML = "<p>Czechoslovak Communists</p><br><p>The Communist Party of Czechoslovakia was founded in 1921. Among its founding members were mostly social democratic politicians. The party managed to become part of the political scene relatively fast and finished second in the 1925 elections. <br>It was international by nature and to a great extent controlled by the Soviet Union. <br>Its internationalization culminated in 1929 with an internal coup made by young radical communists led by Klement Gottwald. During the 1930s, the party managed to maintain the support of about 10% of eligible voters but did not get into the government. It was banned in 1938, and after the Third Reich attacked the Soviet Union, many of its members joined the resistance.</p>";
+    partiesContainerDiv.style.backgroundImage = "url(../img/KSC.jpg)";
   }
 }
 firstPartyToSee();
@@ -675,36 +706,49 @@ allDivs.forEach((something) => {
 something.addEventListener("mousedown", (e) => {
   
   const selectedDiv = e.target; 
-  // const selectedNumberDiv = selectedDiv.dataset["number"]; 
 
   function changeBackground(){
-    if(selectedDiv.innerHTML.indexOf("CLERICAL PARTIES") !== -1) {
-      changingPartiesDiv.innerHTML = "<p>Clerical Parties</p><br><p>The clerical or Catholic parties were formed at the end of the 19th century. <br>There were two main discourses among them: the Catholic-National and the Christian-Social one. </p><br><p>In 1897, the Catholic-Social parties merged into the National Catholic Party <br>of the Kingdom of Bohemia. The National Catholic Party sought peaceful cooperation between the Slavic nations living in the Habsburg Monarchy without being dominated by the German-speaking elites. However, it remained loyal to the monarchy.</p><br><p>The Christian Social Party was founded in 1894. It developed in a more civic direction.</p><br><p>Both discourses were very conservative in their actions; they rejected the women’s movements and held the view that society is based on status. They saw both socialism and liberalism as systemic evil.</p>";
-      partiesContainerDiv.style.backgroundImage = "url(../img/Klerikalove.jpg";
-      // partiesContainerDiv.classList.add("backgroundImage");
-    }
-    if(selectedDiv.innerHTML.indexOf("YOUNG CZECHS") !== -1) {
-      changingPartiesDiv.innerHTML = "<p>Young Czechs (for our calculator, we connected them with Old Czechs)</p><br> <p>The National Liberal Party, in short, Young Czechs, was a political party operating <br>in the Czech part of Austria-Hungary. It was established at the end of 1874 after long disputes in the National Party. The programme of the Young Czechs was nationalist and liberal. At the turn of the 19th and 20th centuries, the party held a dominant position in the Czech political spectrum. Karel Kramář, Alois Rašín and Miroslav Tyrš were among the party’s important members.</p><br><p>Old Czechs</p>The National Party, or Old Czechs, was the first political party in the Czech lands. <br>It was founded in 1848 by a civil initiative and brought together various political and ideological groups. Initially, it included the Young Czechs, who, however, separated after long disputes in 1874. <br>The influence of the National Party on political events – despite several years of being represented in the Imperial Council – was declining ever since.";
-      partiesContainerDiv.style.backgroundImage = "url(../img/MladStar.jpg";
-    }
-    if(selectedDiv.innerHTML.indexOf("SOCIAL DEMOCRATS") !== -1) {
-      changingPartiesDiv.innerHTML = "<p>Social Democrats</p><br>The Social Democratic Czechoslavonic Workers’ Party was founded in 1893 by gaining independence from the Austrian Socialists. It was represented in the Imperial Council since 1897. At the same time, the social democratic representatives decided on a statement that lead to the establishment of the Democratic Czechoslavonic Workers’ Party. The party advocated for an eight-hour workday, a fair wage <br>and universal suffrage. In the 1907 elections, they ran outside the Austrian Social Democracy for the first time. At the time, voters were divided into several groups (curia) and the weight of individual votes varied. Thus, although at first, it seemed that Social Democracy would win the Czech lands, after the conversion according to curia it ended second. <br>During the First World War, the party was initially loyal to Austria-Hungary, but towards the end of the war, its left wing took part in anti-war demonstrations.";
-      partiesContainerDiv.style.backgroundImage = "url(../img/SocDem.jpg";
-    }
     if(selectedDiv.innerHTML.indexOf("AGRARIANS") !== -1) {
-      changingPartiesDiv.innerHTML = "<p>Agrarians</p><br>The Czech Agrarian Party, one of the most important parties of the First Republic period, was founded in 1899. Its founding fathers included Karel Prášek and Stanislav Kubr. Agrarians supported national traditions, and their goal was to weaken centralism and expand the powers of the assemblies of the Bohemian Crown. Their programme included the supervision of agricultural cartels, the recognition of Czech state law, and the protection of Austrian agriculture. They focused on the basic needs of the rural population and defended the interests of farmers – sometimes too ruthlessly. Before the outbreak of the First World War, Agrarians were the second strongest party.";
-      partiesContainerDiv.style.backgroundImage = "url(../img/Agrarnici.jpg";
+      changingPartiesDiv.innerHTML = "<p>Agrarians</p><br><p>The Republican Party of Farmers and Peasants was founded in 1899. It primarily focused on the needs of the rural population. Antonín Švehla, one of the main representatives of the Czech resistance, is the most well-known personality <br>of the party. The party had a very dense organizational network, and it reached its peak in the 1935 elections – although the Agrarians didn’t win, they gained 45 seats, which was enough for them to continue being the main force in the Government. However, the influence of this party slowly diminished since it wasn’t able to address the ongoing urbanization in its programme. In 1938 it was dissolved and was not restored after the Second World War.</p>";
+      partiesContainerDiv.style.backgroundImage = "url(../img/Agrarnici.jpg)";
+    } 
+    if(selectedDiv.innerHTML.indexOf("SOCIAL DEMOCRATS") !== -1) {
+      changingPartiesDiv.innerHTML = "<p>Social Democrats</p><br> <p>The tradition of an organized social democratic movement started in 1878, but the Czechoslovak Social Democratic Worker’s Party (ČSDSD) was only founded <br>in December 1918. It was one of the strongest political parties in the First Republic; <br>in 1921, however, several representatives left for the newly formed Communist Party (KSČ).  Between the world wars, it cooperated with German and Austrian parties thanks to its left-wing ideas about national minorities. The international political programme made it possible to establish contacts abroad.";
+      partiesContainerDiv.style.backgroundImage = "url(../img/CSSD.jpg)";
+  
     }
-    if(selectedDiv.innerHTML.indexOf("CONSTITUTIONALIST BLOC") !== -1) {
-      changingPartiesDiv.innerHTML = "<p>Constitutionalist Bloc</p><br><p>In response to the lack of national parties, four schools of thought gradually appeared at the Nymburk congress of the Young Bohemians in 1894:</p><br><p>1) The Constitutionalist Right, which emphasized historical state law. It was headed by Alois Rašín, the future Minister of Finance of the First Republic. </p><br><p>2) The Radical Progressive Party, originally the Constitutionalist Left, which advocated for the idea of natural law. It was founded in 1897 by the Hajn brothers.</p><br><p>3) The Party of Progressive Socialists, founded in 1896 by progressive workers <br>and anarchists.</p><br><p>4)The Czech Constitutionalist Party, which advocated for universal suffrage <br>and the independence of Czech lands from the beginning. </p><br><p>Before the elections, there were strong anti-clerical feelings in the Czech lands; this led to the unification of national social, radically progressive, and constitutionalist representatives. The Alliance of Czech Constitutionalist Democracy was established. Karel Baxa, Václav Klofáč and Václav Hajn were among those who joined the Imperial Council as members of this Constitutionalist Bloc. A year later, the Czech Constitutionalist Party merged with the Radical Progressive Party, which led <br>to the establishment of the Czech Constitutionalist Party.</p> ";
-      partiesContainerDiv.style.backgroundImage = "url(../img/Cstpd.jpg";
+    if(selectedDiv.innerHTML.indexOf("NATIONAL SOCIALISTS") !== -1) {
+      changingPartiesDiv.innerHTML = "<p>National Socialists</p><br>The Czechoslovak National Socialist Party was founded in 1897 but only got this name in 1926. It had its own unions which helped it consolidate its political power during the interwar period. It was one of the parties of the so-called Five, which held the most political power. Among the members of this party were, for example, <br>the second President of Czechoslovakia Edvard Beneš, Milada Horáková and Václav Klofáč. On the political spectrum, this was a centrist party, which promoted National Socialism and advocated for the defence of the Republic.";
+      partiesContainerDiv.style.backgroundImage = "url(../img/CSNS.jpg)";
+  
+    }
+    if(selectedDiv.innerHTML.indexOf("PEOPLE'S PARTY") !== -1) {
+      changingPartiesDiv.innerHTML = "<p>People's Party</p><br>The Czechoslovak People’s Party was established in January 1919 by merging several Catholic parties. From the beginning, it targeted people from all social backgrounds and thanks to its broad scope was successful despite weak election results. <br>It participated in all the governments of the First Republic. In addition to its own newspaper, which was issued by almost every party, they founded the Orel gymnastic organization. It was a close second to the more famous Sokol. The leading figure <br>of the party was its founder, Msgr. Jan Šrámek. ";
+      partiesContainerDiv.style.backgroundImage = "url(../img/CSL.jpg)";
+  
+    }
+    if(selectedDiv.innerHTML.indexOf("NATIONAL UNIFICATION") !== -1) {
+      changingPartiesDiv.innerHTML = "<p>National Unification</p><br>The National Unification was a young political group founded in 1934 “on popular demand”. It was characterized by strong Czech nationalism, which was <br>to be a counterweight to German nationalism. The party was among the loudest critics of the traditional ruling parties and of President Edvard Beneš. It gained 5.5 % of the vote in the elections, which was enough for 17 seats. Internal disagreements <br>in the party led to its merging into the Party of National Unity in 1938. ";
+      partiesContainerDiv.style.backgroundImage = "url(../img/NS.jpg)";
+  
+    }
+    if(selectedDiv.innerHTML.indexOf("HENLEIN'S PARTY") !== -1) {
+      changingPartiesDiv.innerHTML = "<p>Henlein's Party</p><br><p>The Sudeten German Party (SDP) was founded in 1933 in reaction to the effects of the Great Depression, which affected the borderland severely. The party’s founder <br>and chairman, Konrad Henlein, targeted the Czech Germans. He failed to unite German political parties, but his electorate grew significantly, leading to the party’s victory in the 1935 elections. The party didn’t win the largest number of seats <br>and was not tasked with forming a government, but its popularity continued to rise.  The SDP started escalating its demands regarding the issues of national minorities, especially the Czech Germans. In this way, it significantly contributed to the political crisis which resulted in the demise of the First Republic.</p> ";
+      partiesContainerDiv.style.backgroundImage = "url(../img/SDP.jpg)";
+  
+    }
+    if(selectedDiv.innerHTML.indexOf("CZECH FASCISTS") !== -1) {
+      changingPartiesDiv.innerHTML = "<p>Czech Fascists</p><br><p>The National Fascist Community was the largest group of Czech fascists during the interwar period and started emerging during the early 1920s. The party was established by merging several smaller fascist organizations united by their hatred towards the communists. At first, it was against Germany, but it changed its stance <br>at the end of the 1930s, hoping to gain more political power. Its biggest success came in the 1935 elections in which it won six seats. It never reached significant power due to internal disputes. The leader of the party was one of the greatest personalities <br>of the Czechoslovak legions, Rudolf Gejdl (better known as Radola Gajda). The party ceased to exist in 1939.</p> ";
+      partiesContainerDiv.style.backgroundImage = "url(../img/NOF.jpg)";
+  
+    }
+    if(selectedDiv.innerHTML.indexOf("CZECHOSLOVAK COMMUNISTS") !== -1) {
+      changingPartiesDiv.innerHTML = "<p>Czechoslovak Communists</p><br><p>The Communist Party of Czechoslovakia was founded in 1921. Among its founding members were mostly social democratic politicians. The party managed to become part of the political scene relatively fast and finished second in the 1925 elections. <br>It was international by nature and to a great extent controlled by the Soviet Union. <br>Its internationalization culminated in 1929 with an internal coup made by young radical communists led by Klement Gottwald. During the 1930s, the party managed to maintain the support of about 10% of eligible voters but did not get into the government. It was banned in 1938, and after the Third Reich attacked the Soviet Union, many of its members joined the resistance.</p>";
+      partiesContainerDiv.style.backgroundImage = "url(../img/KSC.jpg)";
+  
     }
   }
-
   changeBackground();
-
-
- 
 })});
 };
 clickOnDiv();

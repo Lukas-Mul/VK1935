@@ -92,6 +92,7 @@ a {
   padding-left: 5%;
   width: 100%;
   height: 100%;
+  cursor: grab;
 }
 
 .text-container .title {
@@ -148,17 +149,15 @@ a {
 }
 
 #question {
-  /* padding-top: 0.6rem; */
-  /* margin-top: 5rem; */
-  /* font-size: 36pt; */
-  padding-top: 4rem;
-  margin-top: 1rem;
+  padding-top: 0.6rem;
+  margin-top: 5rem;
   font-size: 36pt;
   font-family: "BodoniLibre";
+  /* animation: goLeft 0.7s ease-in; */
 }
 
 .slide {
-  animation: goLeft 0.8s;
+  animation: goLeft 0.4s;
   animation-timing-function: cubic-bezier(0, 0.4, 0, 1);
   /* transition: animation 3s ease; */
 }
@@ -174,6 +173,22 @@ a {
     opacity: 1;
   }
 }
+
+/* .goAway {
+  animation: goAway 0.7s ease-in;
+}
+
+@keyframes goAway {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+} */
 
 .answer-container {
   height: 50vh;
@@ -263,21 +278,19 @@ a {
 }
 
 /* LAST PAGE CSS */
-.last-question-container1 {
-  height: 6%;
-  border: none;
-  padding: 0% 0% 0% 4%;
+
+.last-question-container {
+  padding-top: 4%;
+  flex-direction: column;
+  height: 88%;
   background-color: black;
 }
 
-.last-question-container {
-  position: absolute;
-  top: 11%;
-  margin-top: 2%;
-  flex-direction: column;
-  height: 85%;
+.last-question-container1 {
+  height: 12%;
+  border: none;
+  padding: 1% 0% 4% 4%;
   background-color: black;
-  margin-bottom: 0%;
 }
 
 .last-question-answer {
@@ -285,10 +298,6 @@ a {
   width: 50%;
   height: fit-content;
   margin-bottom: 2.5%;
-}
-
-.last-question-answer:last-child {
-  margin-bottom: 0%;
 }
 
 .last-question-text {
@@ -301,7 +310,7 @@ a {
 
 .last-question-text:active {
   box-shadow: inset 5px 5px 15px black;
-  font-size: 24pt;
+  font-size: 31.5px;
   background-color: #273e72;
 }
 
@@ -355,7 +364,7 @@ a {
   flex-direction: column;
   align-items: left;
   width: 50%;
-  height: 43.5%;
+  height: 50%;
   background-color: #b6111d;
   padding-top: 0.5%;
   border: none;
@@ -369,7 +378,7 @@ a {
   padding: 1%;
   padding-top: 1%;
   height: 16%;
-  width: 30%;
+  width: 32%;
   background-color: white;
   color: #b6111d;
   margin: 0.5%;
@@ -381,7 +390,7 @@ a {
 
 .current {
   height: 22%;
-  width: 42.6%;
+  width: 47%;
   font-size: 24pt;
   padding-top: 1%;
   line-height: 95%;
@@ -405,7 +414,7 @@ a {
 .history-text-text {
   width: 90%;
   text-align: left;
-  line-height: 105%;
+  line-height: 110%;
   font-family: "HKGrotesk-SemiBold";
 }
 
@@ -413,17 +422,11 @@ a {
   font-family: "HKGrotesk-SemiBold";
 }
 
-.changingTextParties {
-  width: 90%;
-  text-align: left;
-  line-height: 102%;
-}
-
 .party-characteristics {
   position: absolute;
-  top: 50%;
+  top: 56.5%;
   left: 0%;
-  height: 50%;
+  height: 43.5%;
   width: 50%;
   background-color: #b6111d;
   text-align: left;
@@ -432,12 +435,18 @@ a {
   border: none;
 }
 
+.changingTextParties {
+  width: 90%;
+  text-align: left;
+  line-height: 110%;
+}
+
 .lastResetButtonDiv {
   position: absolute;
-  width: 100%;
-  height: 10%;
+  width: 50%;
+  height: 5%;
   bottom: 0%;
-  left: 100%;
+  left: 50%;
   background-color: #f8dc20;
 }
 
@@ -472,6 +481,10 @@ a {
 }
 
 .hidden5 {
+  display: none;
+}
+
+.hideLastTwoAnswers {
   display: none;
 }
 
@@ -648,7 +661,8 @@ a {
   cursor: grab;
   font-size: 21pt;
   font-family: "HKGrotesk-SemiBold";
-  animation: appear 0.8s ease-in;
+  animation: appear 0.4s ease-in;
+  /* animation-timing-function: cubic-bezier(0, 0.4, 0, 1); */
 }
 
 @keyframes appear {
@@ -763,8 +777,7 @@ a {
   top: 0px;
   left: 0px;
   width: 100%;
-  /* height: 3%; */
-  /* height: 3rem; */
+  height: 1rem;
   display: flex;
   background-color: black;
 }
@@ -779,7 +792,7 @@ a {
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 8.3%;
+  width: 11.1%;
   height: 1rem;
   display: flex;
   background-color: #f8dc20;
@@ -793,7 +806,7 @@ a {
   outline: none;
   color: white;
   border: none;
-  padding: 1rem;
+  padding: 2rem;
   cursor: grab;
   font-size: 21pt;
   font-family: "HKGrotesk-SemiBold";
