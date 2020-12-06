@@ -99,49 +99,49 @@ let sdp = 0;
 let questions = [
 {
   question: "Do you agree with the current direction of the country after the economic crisis?",
-  choice1: "Ano",
-  choice2: "Ne",
+  choice1: "Yes",
+  choice2: "No",
   answer: 1,
 },
 {
   question: "The parliamentary democracy and the President as the head of the state are the best solution.",
-  choice1: "Ano",
-  choice2: "Ne",
+  choice1: "Yes",
+  choice2: "No",
   answer: 2,
 },
 {
   question:
     "Would you vote for a party that wants to turn to France, Romania and Great Britain rather than Germany, Italy and the Soviet Union in foreign policy? ",
-  choice1: "Ano",
-  choice2: "Ne",
+  choice1: "Yes",
+  choice2: "No",
   answer: 3,
 },
 {
   question:
     "Would you vote for a party that uses foreign funding for its political programme?",
-  choice1: "Ano",
-  choice2: "Ne",
+  choice1: "Yes",
+  choice2: "No",
   answer: 4,
 },
 {
   question:
     "The winning party must be international and have support abroad.",
-  choice1: "Ano",
-  choice2: "Ne",
+  choice1: "Yes",
+  choice2: "No",
   answer: 5,
 },
 {
   question:
     "The ruling party can intervene in the economy and, as part of the central management of the state, make binding rules on what, for whom, and at what price the producers should manufacture. Is this right?",
-  choice1: "Ano",
-  choice2: "Ne",
+  choice1: "Yes",
+  choice2: "No",
   answer: 6,
 },
 {
   question:
     "The winning party should be willing to work closely with other parties if this would improve the political situation in the country.",
-  choice1: "Ano",
-  choice2: "Ne",
+  choice1: "Yes",
+  choice2: "No",
   answer: 7,
 },
 {
